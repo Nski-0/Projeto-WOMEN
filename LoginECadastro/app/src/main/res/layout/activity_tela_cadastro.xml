@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaCadastro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNovoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome Completo"
+            android:textColor="#009C8F"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ctxtNovoNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Digite o seu nome completo"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/txtNovoEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="#009C8F"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ctxtNovoEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Digite o seu e-mail"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/txtNovoTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefone"
+            android:textColor="#009C8F"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ctxtNovoTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Digite o seu número de telefone"
+            android:inputType="phone"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/txtNovoSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textColor="#009C8F"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ctxtNovoSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Digite a sua senha"
+            android:inputType="textPassword"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@+id/btnCriarCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Criar conta"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

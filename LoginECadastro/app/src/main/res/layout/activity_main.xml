@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaInicial">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:textColor="#FF00E5"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/ctxtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="Digite seu e-mail"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/txtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textColor="#FF00E5"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"/>
+
+        <EditText
+            android:id="@+id/ctxtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:hint="Digite sua senha aqui"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCriar"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Criar conta"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Login" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtSenhaEsquecer"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Esqueci a minha senha"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/teste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
