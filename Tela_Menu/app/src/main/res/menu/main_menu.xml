@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_update"
+        android:title="@string/atualizar_conta"/>
+
+    <item android:id="@+id/menu_delete"
+        android:title="@string/deletar_conta"/>
+
+    <item android:id="@+id/menu_exit"
+        android:title="@string/sair_da_conta"/>
+
+</menu>
