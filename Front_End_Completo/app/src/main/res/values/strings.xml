@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Aplicativo</string>
+    <string name="title_activity_mapear_delegacia">Map</string>
+    <string name="denunciar">denunciar</string>
+    <string name="consultar">consultar</string>
+    <string name="alertar">alertar</string>
+    <string name="mapear">mapear</string>
+    <string name="atualizar_conta">atualizar</string>
+    <string name="deletar_conta">deletar</string>
+    <string name="sair_da_conta">sair</string>
+    <string name="content_description_end_icon1">name2</string>
+    <string name="content_description_end_icon">name1</string>
+    <string name="Cep">bairro</string>
+    <string name="Endereço">endereço</string>
+    <string name="Senha">senha</string>
+    <string name="cancelar">cancelar</string>
+</resources>
