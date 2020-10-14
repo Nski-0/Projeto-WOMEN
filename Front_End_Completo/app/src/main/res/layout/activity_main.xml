@@ -4,49 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaInicial">
+    tools:context=".TelaInicial"
+    android:background="@drawable/fundo">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/logo_projeto"
+            android:contentDescription="@string/logo"/>
 
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:textColor="#FF00E5"
-            android:textSize="20sp" />
+            android:layout_height="90dp"
+            android:text="WOMEM"
+            android:textColor="#ffffff"
+            android:textSize="45sp"
+            android:gravity="center" />
 
-        <EditText
-            android:id="@+id/ctxtEmail"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="Digite seu e-mail"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            app:endIconMode="clear_text"
+            app:startIconContentDescription="@string/content_description_end_icon"
+            app:startIconDrawable="@drawable/name1">
 
-        <TextView
-            android:id="@+id/txtSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Senha"
-            android:textColor="#FF00E5"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite seu E-mail"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/ctxtSenha"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:hint="Digite sua senha aqui"/>
+            app:endIconMode="password_toggle"
+            app:startIconContentDescription="@string/Senha"
+            app:startIconDrawable="@drawable/senha">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite sua senha"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,15 +75,19 @@
                 android:id="@+id/btnCriar"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/colorbutton"
                 android:text="Criar conta"
-                android:layout_marginTop="10dp"/>
+                android:textColor="#ffffff" />
 
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Login" />
+                android:background="@drawable/colorbutton"
+                android:text="Login"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 
@@ -83,7 +104,6 @@
             android:id="@+id/teste"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

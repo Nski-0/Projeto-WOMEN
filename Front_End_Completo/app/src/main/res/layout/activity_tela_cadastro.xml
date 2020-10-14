@@ -4,88 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaCadastro">
+    tools:context=".TelaCadastro"
+    android:background="@drawable/fundo">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtNovoNome"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome Completo"
-            android:textColor="#009C8F"
-            android:textSize="20sp" />
+            app:endIconMode="clear_text"
+            app:startIconContentDescription="@string/content_description_end_icon"
+            app:startIconDrawable="@drawable/name1">
 
-        <EditText
-            android:id="@+id/ctxtNovoNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="Digite o seu nome completo"
-            android:inputType="text"
-            android:singleLine="true" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ctxtNovoNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite seu nome completo" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/txtNovoEmail"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:textColor="#009C8F"
-            android:textSize="20sp" />
+            app:endIconMode="clear_text"
+            app:startIconContentDescription="@string/content_description_end_icon"
+            app:startIconDrawable="@drawable/name1">
 
-        <EditText
-            android:id="@+id/ctxtNovoEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="Digite o seu e-mail"
-            android:inputType="textEmailAddress"
-            android:singleLine="true" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ctxtNovoEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite seu E-mail" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/txtNovoTelefone"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="#009C8F"
-            android:textSize="20sp" />
+            app:endIconMode="clear_text"
+            app:startIconContentDescription="@string/content_description_end_icon"
+            app:startIconDrawable="@drawable/telefone">
 
-        <EditText
-            android:id="@+id/ctxtNovoTelefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="Digite o seu número de telefone"
-            android:inputType="phone"
-            android:singleLine="true" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ctxtNovoTelefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Digite seu número de telefone" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/txtNovoSenha"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Senha"
-            android:textColor="#009C8F"
-            android:textSize="20sp" />
+            app:endIconMode="password_toggle"
+            app:startIconContentDescription="@string/Senha"
+            app:startIconDrawable="@drawable/senha">
 
-        <EditText
-            android:id="@+id/ctxtNovoSenha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Digite a sua senha"
-            android:inputType="textPassword"
-            android:singleLine="true"/>
+             <com.google.android.material.textfield.TextInputEditText
+                 android:id="@+id/ctxtNovoSenha"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:hint="Digite sua senha"
+                 android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnCriarCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/colorbutton"
+            android:textColor="#ffffff"
             android:text="Criar conta"
             android:textSize="16sp"
             android:layout_marginTop="30dp"/>

@@ -23,7 +23,7 @@ public class TelaInicial extends AppCompatActivity {
 
     /*private FirebaseAuth mAuth;*/
     private Intent IrTela,IrMenu;
-    private EditText ctxtEmail, ctxtSenha;
+    private EditText txtEmail, txtSenha;
     private TextView teste;
     private Button btnLogin, btnCriar;
 
@@ -35,8 +35,8 @@ public class TelaInicial extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnCriar = (Button) findViewById(R.id.btnCriar);
-        ctxtEmail = (EditText) findViewById(R.id.ctxtEmail);
-        ctxtSenha = (EditText) findViewById(R.id.ctxtSenha);
+        txtEmail = (EditText) findViewById(R.id.txtEmail);
+        txtSenha = (EditText) findViewById(R.id.txtSenha);
         teste = (TextView) findViewById(R.id.teste);
         /*mAuth = FirebaseAuth.getInstance();*/
 
