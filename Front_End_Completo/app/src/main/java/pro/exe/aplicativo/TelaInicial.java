@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class TelaInicial extends AppCompatActivity {
 
-    /*private FirebaseAuth mAuth;*/
+    private FirebaseAuth mAuth;
     private Intent IrTela,IrMenu;
     private EditText txtEmail, txtSenha;
     private TextView teste;
@@ -38,7 +38,7 @@ public class TelaInicial extends AppCompatActivity {
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtSenha = (EditText) findViewById(R.id.txtSenha);
         teste = (TextView) findViewById(R.id.teste);
-        /*mAuth = FirebaseAuth.getInstance();*/
+        mAuth = FirebaseAuth.getInstance();
 
         IrTela = new Intent(TelaInicial.this, TelaCadastro.class);
 
@@ -51,18 +51,18 @@ public class TelaInicial extends AppCompatActivity {
 
         IrMenu = new Intent(TelaInicial.this, TelaMenu.class);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        /*btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(IrMenu);
             }
-        });
+        });*/
 
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = ctxtEmail.getText().toString();
-                String password = ctxtSenha.getText().toString();
+                String email = txtEmail.getText().toString();
+                String password = txtSenha.getText().toString();
 
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(TelaInicial.this, new OnCompleteListener<AuthResult>() {
@@ -71,6 +71,7 @@ public class TelaInicial extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
+                                    startActivity(IrMenu);
                                 } else {
                                     Toast.makeText(TelaInicial.this, "Falha ao realizar o Login",
                                             Toast.LENGTH_SHORT).show();
@@ -79,7 +80,7 @@ public class TelaInicial extends AppCompatActivity {
                         });
             }
         });
-    }*/
+    }
 
     /*@Override
     public void onStart() {
@@ -93,10 +94,9 @@ public class TelaInicial extends AppCompatActivity {
         }
     }*/
 
-    /*
+
     private void updateUI(FirebaseUser currentUser) {
         String msg = "Iniciando Tela Principal...";
         Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
-    }*/
+        }
     }
-}

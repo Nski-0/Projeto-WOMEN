@@ -48,8 +48,6 @@ public class MapearDelegacia extends FragmentActivity implements OnMapReadyCallb
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mMap = googleMap;
-
         mMap.setMyLocationEnabled(true);
 
         //Criando imagem do icone

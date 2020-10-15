@@ -29,14 +29,14 @@ public class TelaCadastro extends AppCompatActivity {
 
         IrMenu = new Intent(TelaCadastro.this, TelaMenu.class);
 
-        btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
+        /*btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(IrMenu);
             }
-        });
+        });*/
 
-        /*btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
+        btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Nome = ctxtNovoNome.getText().toString();
@@ -54,7 +54,7 @@ public class TelaCadastro extends AppCompatActivity {
                 VoltarTela.putExtra("key4", Senha);
                 startActivity(VoltarTela);
             }
-        });*/
+        });
     }
 
 }
