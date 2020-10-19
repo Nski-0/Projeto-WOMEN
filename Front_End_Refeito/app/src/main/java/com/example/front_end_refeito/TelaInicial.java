@@ -36,7 +36,7 @@ public class TelaInicial extends AppCompatActivity {
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtSenha = (EditText) findViewById(R.id.txtSenha);
         teste = (TextView) findViewById(R.id.teste);
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         IrTela = new Intent(TelaInicial.this, TelaCadastro.class);
 
@@ -49,14 +49,14 @@ public class TelaInicial extends AppCompatActivity {
 
         IrMenu = new Intent(TelaInicial.this, TelaMenu.class);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        /*btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(IrMenu);
             }
-        });
+        });*/
 
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = txtEmail.getText().toString();
@@ -76,7 +76,7 @@ public class TelaInicial extends AppCompatActivity {
                             }
                         });
             }
-        });*/
+        });
     }
 
     /*@Override
@@ -91,9 +91,9 @@ public class TelaInicial extends AppCompatActivity {
         }
     }*/
 
-   /* private void updateUI(FirebaseUser currentUser) {
+    private void updateUI(FirebaseUser currentUser) {
         String msg = "Iniciando Tela Principal...";
         Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
         startActivity(IrMenu);
-    }*/
+    }
 }
