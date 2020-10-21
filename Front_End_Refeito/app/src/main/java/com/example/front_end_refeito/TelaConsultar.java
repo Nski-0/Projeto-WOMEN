@@ -25,6 +25,7 @@ public class TelaConsultar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(VoltarMenu);
+                finish();
             }
         });
     }

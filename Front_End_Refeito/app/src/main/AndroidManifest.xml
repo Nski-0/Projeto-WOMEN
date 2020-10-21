@@ -15,8 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaConsultar"></activity>
-        <activity android:name=".TelaDenunciar" />
+        <activity android:name=".TelaConsultar" android:screenOrientation="portrait" />
+        <activity android:name=".TelaDenunciar" android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -32,9 +32,9 @@
         <activity
             android:name=".MapearDelegacia"
             android:label="@string/title_activity_mapear_delegacia" />
-        <activity android:name=".TelaMenu" />
-        <activity android:name=".TelaCadastro" />
-        <activity android:name=".TelaInicial">
+        <activity android:name=".TelaMenu" android:screenOrientation="portrait" />
+        <activity android:name=".TelaCadastro" android:screenOrientation="portrait" />
+        <activity android:name=".TelaInicial" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

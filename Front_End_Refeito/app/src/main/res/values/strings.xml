@@ -5,8 +5,8 @@
     <string name="consultar">consultar</string>
     <string name="alertar">alertar</string>
     <string name="mapear">mapear</string>
-    <string name="atualizar_conta">Atualizar</string>
-    <string name="deletar_conta">Deletar</string>
+    <string name="atualizar_conta">Atualizar senha</string>
+    <string name="deletar_conta">Deletar conta</string>
     <string name="sair_da_conta">Sair</string>
     <string name="content_description_end_icon1">name2</string>
     <string name="content_description_end_icon">name1</string>

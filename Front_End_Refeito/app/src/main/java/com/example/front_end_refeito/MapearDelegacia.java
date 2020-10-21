@@ -19,9 +19,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapearDelegacia extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Marker mdel1;
-    private Marker mdel2;
-    private Marker mdel3;
+    private Marker mdel1, mdel2, mdel3;
+    private Marker mdel4, mdel5, mdel6, mdel7, mdel8, mdel9, mdel10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,6 @@ public class MapearDelegacia extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -81,6 +79,62 @@ public class MapearDelegacia extends FragmentActivity implements OnMapReadyCallb
                 .icon(BitmapDescriptorFactory.fromBitmap(genderBitmapIcon))
                 .alpha(0.7f)
                 .snippet("R. Santa Ana, 398-490 - Cidade Nova, Manaus - AM, 69099-262"));
+
+        LatLng del4 = new LatLng( -3.0002343,-59.9893775);
+        mdel4 = mMap.addMarker(new MarkerOptions()
+                .position(del4)
+                .title("15° DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("Av.Margarita, s/n - Cidade Nova, Manaus-AM, 69097-305"));
+
+        LatLng del5 = new LatLng( -3.0316358,-59.9869542);
+        mdel5 = mMap.addMarker(new MarkerOptions()
+                .position(del5)
+                .title("6° DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("Av. Noel Nutels, 500 - Cidade Nova, Manaus-AM, 69090-000"));
+
+        LatLng del6 = new LatLng( -3.0707579,-59.9963379);
+        mdel6 = mMap.addMarker(new MarkerOptions()
+                .position(del6)
+                .title("23º DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("R.Jack London - Parque Dez de Novembro, Manaus-AM, 69054-070"));
+
+        LatLng del7 = new LatLng( -3.118502,-59.9949412);
+        mdel7 = mMap.addMarker(new MarkerOptions()
+                .position(del7)
+                .title("3º DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("R. Cel. Ferreira de Araújo, 417 - Petrópolis, Manaus - AM, 69063-000"));
+
+        LatLng del8 = new LatLng( -3.0904084,-59.9815015);
+        mdel8 = mMap.addMarker(new MarkerOptions()
+                .position(del8)
+                .title("11° DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("Próximo ao n° 149, R. Santo Antônio, S/N - Coroado, AM, 69080-540"));
+
+        LatLng del9 = new LatLng( -3.1184664,-60.0115191);
+        mdel9 = mMap.addMarker(new MarkerOptions()
+                .position(del9)
+                .title("1° DIP - Distrito Integrado de Polícia")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("Av.Duque de Caxias, 1928 - Praça 14 de Janeiro, Manaus-AM, 69020-141"));
+
+        LatLng del10 = new LatLng( -3.0861193,-60.0298912);
+        mdel10 = mMap.addMarker(new MarkerOptions()
+                .position(del10)
+                .title("Delegacia Geral da Polícia Civil")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                .alpha(0.7f)
+                .snippet("Av.Pedro Teixeira, 180-Dom Pedro, Manaus-AM, 69040-000"));
 
         LatLng manaus = new LatLng(-3.044653, -60.1071907);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(manaus));

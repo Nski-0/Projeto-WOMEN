@@ -1,8 +1,12 @@
 package com.example.front_end_refeito;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +14,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.example.front_end_refeito.TelaInicial.CODIGO_PERMISSOES_REQUIRIDAS;
 
 public class TelaMenu extends AppCompatActivity {
 
@@ -27,13 +37,13 @@ public class TelaMenu extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_exit:
-                Intent VoltarInicio = new Intent(this, TelaInicial.class);
+                Intent VoltarInicio = new Intent(TelaMenu.this, TelaInicial.class);
                 startActivity(VoltarInicio);
+                finish();
                 return false;
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
