@@ -98,5 +98,6 @@ public class TelaInicial extends AppCompatActivity {
     private void updateUI(FirebaseUser currentUser) {
         String msg = "Iniciando Tela Principal...";
         Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
+        startActivity(IrMenu);
         }
     }

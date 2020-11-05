@@ -29,11 +29,11 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyCj80FfcTKyvq92NxmW-nsHzxml7sFA16k" />
 
         <activity
             android:name=".MapearDelegacia"
-            android:label="@string/title_activity_mapear_delegacia"></activity>
+            android:label="@string/title_activity_mapear_delegacia" />
         <activity android:name=".TelaConsultar" />
         <activity android:name=".TelaDenunciar" />
         <activity android:name=".TelaMenu" />
