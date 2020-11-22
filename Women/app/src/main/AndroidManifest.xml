@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.front_end_refeito">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -14,8 +15,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".TelaAlertar"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".DeletarConta"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MudarSenha"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AtualizarConta"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RedefinirSenha"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TelaAlertar"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

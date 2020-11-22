@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaCadastro"
-    android:background="@drawable/fundo">
+    android:background="@drawable/fundo"
+    tools:context=".AtualizarConta">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -95,19 +95,20 @@
                 android:id="@+id/ctxtNovoSenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Digite sua senha"
+                android:hint="Digite sua senha para atualizar"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnCriarCadastro"
+            android:id="@+id/btnAtualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/colorbutton"
-            android:text="Criar conta"
+            android:text="Atualizar conta"
             android:textColor="#ffffff"
             android:textSize="16sp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

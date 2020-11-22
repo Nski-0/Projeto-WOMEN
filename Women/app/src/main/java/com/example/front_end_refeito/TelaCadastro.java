@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class TelaCadastro extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoTelefone, ctxtNovoSenha;
+    private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoSenha , ctxtNovoCPF , ctxtNovoEndereco;
     private Button btnCriarCadastro;
     private Intent IrMenu;
     private String TAG = "TelaCadastro";
@@ -33,7 +33,8 @@ public class TelaCadastro extends AppCompatActivity {
         btnCriarCadastro = (Button) findViewById(R.id.btnCriarCadastro);
         ctxtNovoNome = (EditText) findViewById(R.id.ctxtNovoNome);
         ctxtNovoEmail = (EditText) findViewById(R.id.ctxtNovoEmail);
-        ctxtNovoTelefone = (EditText) findViewById(R.id.ctxtNovoTelefone);
+        ctxtNovoCPF = (EditText) findViewById(R.id.cpf);
+        ctxtNovoEndereco = (EditText) findViewById(R.id.endereco);
         ctxtNovoSenha = (EditText) findViewById(R.id.ctxtNovoSenha);
         mAuth = FirebaseAuth.getInstance();
 
@@ -44,15 +45,16 @@ public class TelaCadastro extends AppCompatActivity {
             public void onClick(View v) {
                 String nome = ctxtNovoNome.getText().toString();
                 String email = ctxtNovoEmail.getText().toString();
-                String tel = ctxtNovoTelefone.getText().toString();
+                String cpf = ctxtNovoCPF.getText().toString();
+                String endereco = ctxtNovoEndereco.getText().toString();
                 String senha = ctxtNovoSenha.getText().toString();
 
-                registerNewUser(nome, email, tel, senha);
+                registerNewUser(nome, email, cpf, endereco, senha);
             }
         });
     }
 
-    private void registerNewUser(String nome, String email, String tel, String senha){
+    private void registerNewUser(String nome, String email, String cpf, String endereco, String senha){
 
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

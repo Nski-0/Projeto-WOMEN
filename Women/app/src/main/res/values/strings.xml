@@ -12,4 +12,8 @@
     <string name="Senha">senha</string>
     <string name="logo">logo</string>
     <string name="mudar_senha">Mudar Senha</string>
+    <string name="ligar180">Ligar 180</string>
+    <string name="enviarMensagem">enviar mensagem</string>
+    <string name="Cep">cep</string>
+    <string name="Endereço">endereco</string>
 </resources>

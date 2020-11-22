@@ -21,8 +21,8 @@ import java.util.List;
 
 public class TelaMenu extends AppCompatActivity {
 
-    private Intent IrDenunciar, IrConsultar, IrAlertar, IrMapear;
-    private Button btnDenunciar, btnConsultar, btnAlertar, btnMapear;
+    private Intent IrDenunciar, IrAlertar, IrMapear;
+    private Button btnDenunciar, btnAlertar, btnMapear;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,6 +39,22 @@ public class TelaMenu extends AppCompatActivity {
                 startActivity(VoltarInicio);
                 finish();
                 return false;
+
+            case R.id.change_password:
+                Intent MudarSenha = new Intent(TelaMenu.this, MudarSenha.class);
+                startActivity(MudarSenha);
+                return false;
+
+            case R.id.menu_update:
+                Intent AtualizarConta = new Intent(TelaMenu.this, AtualizarConta.class);
+                startActivity(AtualizarConta);
+                return false;
+
+            case R.id.menu_delete:
+                Intent DeletarConta = new Intent(TelaMenu.this, DeletarConta.class);
+                startActivity(DeletarConta);
+                return false;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -62,14 +78,11 @@ public class TelaMenu extends AppCompatActivity {
             }
         });
 
+        IrAlertar = new Intent(TelaMenu.this, TelaAlertar.class);
         btnAlertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IrAlertar = new Intent(Intent.ACTION_DIAL);
-                IrAlertar.setData(Uri.parse("tel:" + "180"));
-                if (IrAlertar.resolveActivity(getPackageManager()) != null) {
-                    startActivity(IrAlertar);
-                }
+                startActivity(IrAlertar);
             }
         });
 

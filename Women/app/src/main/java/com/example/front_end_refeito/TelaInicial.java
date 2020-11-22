@@ -90,6 +90,8 @@ public class TelaInicial extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    String msg = "Iniciando Tela Principal...";
+                                    Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
                                 } else {
@@ -139,9 +141,12 @@ public class TelaInicial extends AppCompatActivity {
     }*/
 
     private void updateUI(FirebaseUser currentUser) {
-        String msg = "Iniciando Tela Principal...";
-        Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
         startActivity(IrMenu);
         finish();
+    }
+
+    public void redefinirSenha(View view) {
+        Intent IrRedefinir = new Intent(TelaInicial.this, RedefinirSenha.class);
+        startActivity(IrRedefinir);
     }
 }
