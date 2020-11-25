@@ -29,9 +29,6 @@
             android:name=".AtualizarConta"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RedefinirSenha"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".TelaAlertar"
             android:screenOrientation="portrait" />
         <!--

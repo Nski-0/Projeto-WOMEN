@@ -2,6 +2,8 @@ package com.example.front_end_refeito;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,6 +19,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +34,7 @@ public class TelaInicial extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Intent IrTela,IrMenu;
     private EditText txtEmail, txtSenha;
-    private TextView teste, txtPermissao;
+    private TextView teste, txtPermissao, txtEsquecerSenha;
     private Button btnLogin, btnCriar;
 
     String[] appPermissoes = {
@@ -45,6 +49,7 @@ public class TelaInicial extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtPermissao = (TextView) findViewById(R.id.txtPermissao);
+        txtEsquecerSenha = (TextView) findViewById(R.id.txtSenhaEsquecer);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnCriar = (Button) findViewById(R.id.btnCriar);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -59,6 +64,7 @@ public class TelaInicial extends AppCompatActivity {
         }
 
         IrTela = new Intent(TelaInicial.this, TelaCadastro.class);
+
         btnCriar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,14 +72,52 @@ public class TelaInicial extends AppCompatActivity {
             }
         });
 
-        IrMenu = new Intent(TelaInicial.this, TelaMenu.class);
-
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
+        txtEsquecerSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(IrMenu);
+
+                final EditText resetEmail = new EditText(v.getContext());
+                final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
+                passwordResetDialog.setTitle("Esqueçeu a senha ?");
+                passwordResetDialog.setMessage("Digite seu Email para receber o link de resetar.");
+                passwordResetDialog.setView(resetEmail);
+
+                passwordResetDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // extrair o email para receber o link de resetar senha
+                        String Email = resetEmail.getText().toString();
+                        mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(TelaInicial.this, "Link enviado para  seu Email",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(TelaInicial.this, "" + e.getMessage(),
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                });
+
+                passwordResetDialog.setNegativeButton("Não ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //fechar dialogo
+
+                    }
+                });
+
+                passwordResetDialog.create().show();
+
             }
-        });*/
+        });
+
+        IrMenu = new Intent(TelaInicial.this, TelaMenu.class);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,10 +125,8 @@ public class TelaInicial extends AppCompatActivity {
                 String email = txtEmail.getText().toString();
                 String password = txtSenha.getText().toString();
 
-                if(email.isEmpty()&&password.isEmpty()){
-                    Toast.makeText(TelaInicial.this, "Por favor preencha os campos",
-                            Toast.LENGTH_SHORT).show();
-                }else{
+                if(!email.trim().isEmpty()&&!password.trim().isEmpty()){
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(TelaInicial.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -95,8 +137,10 @@ public class TelaInicial extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     updateUI(user);
                                 } else {
-                                    Toast.makeText(TelaInicial.this, "Falha ao realizar o Login",
+                                    Toast.makeText(TelaInicial.this, " Email e/ou senha incorretos",
                                             Toast.LENGTH_SHORT).show();
+                                    txtEmail.setText("");
+                                    txtSenha.setText("");
                                 }
                             }
                         });
@@ -128,25 +172,9 @@ public class TelaInicial extends AppCompatActivity {
             return true;
     }
 
-    /*@Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            updateUI(currentUser);
-        }else{
-            String msg = "Erro ao fazer o Login";
-            Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
-        }
-    }*/
-
     private void updateUI(FirebaseUser currentUser) {
         startActivity(IrMenu);
         finish();
     }
 
-    public void redefinirSenha(View view) {
-        Intent IrRedefinir = new Intent(TelaInicial.this, RedefinirSenha.class);
-        startActivity(IrRedefinir);
-    }
 }

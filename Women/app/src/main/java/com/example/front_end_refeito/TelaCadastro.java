@@ -16,10 +16,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TelaCadastro extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    //private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
     private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoSenha , ctxtNovoCPF , ctxtNovoEndereco;
     private Button btnCriarCadastro;
     private Intent IrMenu;
@@ -39,6 +42,8 @@ public class TelaCadastro extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         IrMenu = new Intent(TelaCadastro.this, TelaMenu.class);
+
+        ctxtNovoCPF.addTextChangedListener(MaskEditUtil.mask(ctxtNovoCPF, MaskEditUtil.FORMAT_CPF));
 
         btnCriarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,14 +67,12 @@ public class TelaCadastro extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
+                            Log.d(TAG, "Cadastro feito com sucesso!");
                             FirebaseUser user = mAuth.getCurrentUser();
                             finishRegister(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(TelaCadastro.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Log.w(TAG, "Erro ao cadastrar o usuario!", task.getException());
                             finishRegister(null);
                         }
                     }
