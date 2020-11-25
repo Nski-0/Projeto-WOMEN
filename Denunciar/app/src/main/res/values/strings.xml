@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Denunciar</string>
-    <string name="content_description_end_icon">Name1</string>
-    <string name="content_description_end_icon1">Name2</string>
-    <string name="Bairro">Bairro</string>
-    <string name="Endereço">Endereço</string>
-    <string name="Senha">Senha</string>
-</resources>
