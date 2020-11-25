@@ -1,4 +1,4 @@
-package com.example.front_end_refeito;
+package com.example.women;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -27,7 +27,7 @@ public class TelaMenu extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -35,7 +35,7 @@ public class TelaMenu extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_exit:
-                Intent VoltarInicio = new Intent(TelaMenu.this, TelaInicial.class);
+                Intent VoltarInicio = new Intent(TelaMenu.this, MainActivity.class);
                 startActivity(VoltarInicio);
                 finish();
                 return false;
@@ -95,4 +95,5 @@ public class TelaMenu extends AppCompatActivity {
         });
     }
 }
+
 

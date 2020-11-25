@@ -1,4 +1,4 @@
-package com.example.front_end_refeito;
+package com.example.women;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TelaCadastro extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    //private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+    //private DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
     private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoSenha , ctxtNovoCPF , ctxtNovoEndereco;
     private Button btnCriarCadastro;
     private Intent IrMenu;
@@ -40,8 +40,6 @@ public class TelaCadastro extends AppCompatActivity {
         ctxtNovoEndereco = (EditText) findViewById(R.id.endereco);
         ctxtNovoSenha = (EditText) findViewById(R.id.ctxtNovoSenha);
         mAuth = FirebaseAuth.getInstance();
-
-        IrMenu = new Intent(TelaCadastro.this, TelaMenu.class);
 
         ctxtNovoCPF.addTextChangedListener(MaskEditUtil.mask(ctxtNovoCPF, MaskEditUtil.FORMAT_CPF));
 

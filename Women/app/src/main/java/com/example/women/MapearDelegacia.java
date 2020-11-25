@@ -1,4 +1,4 @@
-package com.example.front_end_refeito;
+package com.example.women;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -31,6 +31,7 @@ public class MapearDelegacia extends FragmentActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+
 
     /**
      * Manipulates the map once available.

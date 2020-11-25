@@ -1,4 +1,4 @@
-package com.example.front_end_refeito;
+package com.example.women;
 
 import android.Manifest;
 import android.app.Activity;
@@ -29,7 +29,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaInicial extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Intent IrTela,IrMenu;
@@ -58,12 +58,12 @@ public class TelaInicial extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         if(verificarPermissoes()){
-                // iniciar aplicativo
+            // iniciar aplicativo
         } else {
-                //txtPermissao.setText("Nem todas as permissões estão ativas");
+            //txtPermissao.setText("Nem todas as permissões estão ativas");
         }
 
-        IrTela = new Intent(TelaInicial.this, TelaCadastro.class);
+        IrTela = new Intent(MainActivity.this, TelaCadastro.class);
 
         btnCriar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,13 +90,13 @@ public class TelaInicial extends AppCompatActivity {
                         mAuth.sendPasswordResetEmail(Email).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(TelaInicial.this, "Link enviado para  seu Email",
+                                Toast.makeText(MainActivity.this, "Link enviado para  seu Email",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(TelaInicial.this, "" + e.getMessage(),
+                                Toast.makeText(MainActivity.this, "" + e.getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -117,7 +117,7 @@ public class TelaInicial extends AppCompatActivity {
             }
         });
 
-        IrMenu = new Intent(TelaInicial.this, TelaMenu.class);
+        IrMenu = new Intent(MainActivity.this, TelaMenu.class);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,24 +127,24 @@ public class TelaInicial extends AppCompatActivity {
 
                 if(!email.trim().isEmpty()&&!password.trim().isEmpty()){
 
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(TelaInicial.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    String msg = "Iniciando Tela Principal...";
-                                    Toast.makeText(TelaInicial.this, msg, Toast.LENGTH_LONG).show();
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
-                                } else {
-                                    Toast.makeText(TelaInicial.this, " Email e/ou senha incorretos",
-                                            Toast.LENGTH_SHORT).show();
-                                    txtEmail.setText("");
-                                    txtSenha.setText("");
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        String msg = "Iniciando Tela Principal...";
+                                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_LONG).show();
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        updateUI(user);
+                                    } else {
+                                        Toast.makeText(MainActivity.this, " Email e/ou senha incorretos",
+                                                Toast.LENGTH_SHORT).show();
+                                        txtEmail.setText("");
+                                        txtSenha.setText("");
+                                    }
                                 }
-                            }
-                        });
-            }}
+                            });
+                }}
         });
     }
 
@@ -159,17 +159,17 @@ public class TelaInicial extends AppCompatActivity {
             }
         }
 
-            if(!permissoesRequiridas.isEmpty())
-            {
-                ActivityCompat.requestPermissions(this,
-                        permissoesRequiridas.toArray(new
-                                String[permissoesRequiridas.size()]),
-                        CODIGO_PERMISSOES_REQUIRIDAS);
-                return false;
-            }
+        if(!permissoesRequiridas.isEmpty())
+        {
+            ActivityCompat.requestPermissions(this,
+                    permissoesRequiridas.toArray(new
+                            String[permissoesRequiridas.size()]),
+                    CODIGO_PERMISSOES_REQUIRIDAS);
+            return false;
+        }
 
-            //txtPermissao.setText("Todas as permissões ativas");
-            return true;
+        //txtPermissao.setText("Todas as permissões ativas");
+        return true;
     }
 
     private void updateUI(FirebaseUser currentUser) {
