@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tela_Menu</string>
+    <string name="atualizar_conta">Atualizar conta</string>
+    <string name="deletar_conta">Deletar conta</string>
+    <string name="sair_da_conta">Sair da conta</string>
+    <string name="denunciar">DENUNCIAR</string>
+    <string name="consultar">CONSULTAR</string>
+    <string name="alertar">ALERTAR</string>
+    <string name="mapear">MAPEAR</string>
+</resources>

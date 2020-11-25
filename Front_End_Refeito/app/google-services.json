@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "573126940861",
+    "firebase_url": "https://women-96a7a.firebaseio.com",
+    "project_id": "women-96a7a",
+    "storage_bucket": "women-96a7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573126940861:android:85545f68f6722a9b723fd4",
+        "android_client_info": {
+          "package_name": "com.example.front_end_refeito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573126940861-eaqms2tpauvfodha1p1pupaq4n3361d3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.front_end_refeito",
+            "certificate_hash": "e879ca5a20dde60dbd7ded7879a7d524e413c64a"
+          }
+        },
+        {
+          "client_id": "573126940861-ukbrvf1neds60r7plucbp2a1cu49lr4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPLouqXsQWbz0pGGi9UMp6WgfZhxQtio0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573126940861-ukbrvf1neds60r7plucbp2a1cu49lr4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
