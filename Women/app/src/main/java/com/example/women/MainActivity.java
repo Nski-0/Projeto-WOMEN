@@ -32,7 +32,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private Intent IrTela,IrMenu;
+    private Intent IrTela,IrMenu,EnviarEmail;
     private EditText txtEmail, txtSenha;
     private TextView teste, txtPermissao, txtEsquecerSenha;
     private Button btnLogin, btnCriar;
@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = txtEmail.getText().toString();
-                String password = txtSenha.getText().toString();
+                final String email = txtEmail.getText().toString();
+                final String password = txtSenha.getText().toString();
 
                 if(!email.trim().isEmpty()&&!password.trim().isEmpty()){
 

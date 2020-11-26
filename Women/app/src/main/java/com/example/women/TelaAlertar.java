@@ -1,12 +1,28 @@
 package com.example.women;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 public class TelaAlertar extends AppCompatActivity {
 
@@ -35,17 +51,71 @@ public class TelaAlertar extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IrMensagem = new Intent();
-                IrMensagem.setPackage("com.whatsapp");
-                IrMensagem.setAction(Intent.ACTION_SEND);
-                IrMensagem.putExtra(Intent.EXTRA_TEXT, "Texto do whats para teste.");
-                IrMensagem.setType("text/plain");
+                setMyLastLocation();
 
-                if (IrMensagem.resolveActivity(getPackageManager()) != null) {
-                    startActivity(IrMensagem);
+        }});
+    }
+
+    /*private void zoomMyCuurentLocation() {
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        if (location != null) {
+            double lat = location.getLatitude();
+            double longi = location.getLongitude();
+            LatLng latLng = new LatLng(lat,longi);
+        } else {
+            setMyLastLocation();
+        }
+    }*/
+
+    private void setMyLastLocation() {
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null){
+                    double lat = location.getLatitude();
+                    double longi = location.getLongitude();
+                    LatLng latLng = new LatLng(lat,longi);
+                    enviarMensagemWhats(latLng);
+
+
+                }else{
+                    enviarMensagemWhats(null);
                 }
             }
         });
     }
+
+    private void enviarMensagemWhats(LatLng latLng){
+
+        String mensagem;
+        if(latLng== null){
+            mensagem = "estou em perigo nao sei minha localizaçao.";
+        }else{
+            mensagem = "Estou em perigo minha localizaçao:" + latLng.latitude + "," + latLng.longitude;
+        }
+
+            try {
+                PackageManager packageManager = getPackageManager();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                String url = "https://api.whatsapp.com/send?phone=" + "+559291939930" + "&text=" + URLEncoder.encode(mensagem, "UTF-8");
+                i.setPackage("com.whatsapp");
+                i.setData(Uri.parse(url));
+                if (i.resolveActivity(packageManager) != null) {
+                    startActivity(i);
+                }
+
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
 }
 
