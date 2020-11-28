@@ -1,5 +1,6 @@
 package com.example.women;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.women.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +27,7 @@ public class TelaCadastro extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase firebase;
     private DatabaseReference myRef;
-    private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoSenha , ctxtNovoCPF , ctxtNovoEndereco;
+    private EditText ctxtNovoNome, ctxtNovoEmail, ctxtNovoSenha , ctxtNovoCPF , ctxtNovoEndereco, novoContato;
     private Button btnCriarCadastro;
     private String TAG = "TelaCadastro";
 
@@ -37,11 +39,12 @@ public class TelaCadastro extends AppCompatActivity {
         btnCriarCadastro = (Button) findViewById(R.id.btnCriarCadastro);
         ctxtNovoNome = (EditText) findViewById(R.id.ctxtNovoNome);
         ctxtNovoEmail = (EditText) findViewById(R.id.ctxtNovoEmail);
+        novoContato = (EditText) findViewById(R.id.novoContato);
         ctxtNovoCPF = (EditText) findViewById(R.id.cpf);
         ctxtNovoEndereco = (EditText) findViewById(R.id.endereco);
         ctxtNovoSenha = (EditText) findViewById(R.id.ctxtNovoSenha);
-        mAuth = FirebaseAuth.getInstance();
 
+        mAuth = FirebaseAuth.getInstance();
         firebase = FirebaseDatabase.getInstance();
         myRef = firebase.getReference();
 
@@ -52,6 +55,7 @@ public class TelaCadastro extends AppCompatActivity {
             public void onClick(View v) {
                 String nome = ctxtNovoNome.getText().toString();
                 String email = ctxtNovoEmail.getText().toString();
+                String contato = novoContato.getText().toString();
                 String cpf = ctxtNovoCPF.getText().toString();
                 String endereco = ctxtNovoEndereco.getText().toString();
                 String senha = ctxtNovoSenha.getText().toString();
@@ -63,6 +67,11 @@ public class TelaCadastro extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(email)){
                     ctxtNovoEmail.setError("Insira o seu email");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(contato)){
+                    novoContato.setError("Insira o contato");
                     return;
                 }
 
@@ -81,12 +90,12 @@ public class TelaCadastro extends AppCompatActivity {
                     return;
                 }
 
-                registerNewUser(nome, email, cpf, endereco, senha);
+                registerNewUser(nome, email, contato, cpf, endereco, senha);
             }
         });
     }
 
-    private void registerNewUser(final String nome, final String email, final String cpf, final String endereco, String senha){
+    private void registerNewUser(final String nome, final String email, final String contato, final String cpf, final String endereco, String senha){
 
         mAuth.createUserWithEmailAndPassword(email, senha)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -95,12 +104,13 @@ public class TelaCadastro extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "Cadastro feito com sucesso!");
-                            myRef.child("Usuario").child(mAuth.getUid()).child("Uid").setValue(mAuth.getUid());
-                            myRef.child("Usuario").child(mAuth.getUid()).child("nome").setValue(nome);
-                            myRef.child("Usuario").child(mAuth.getUid()).child("cpf").setValue(cpf);
-                            myRef.child("Usuario").child(mAuth.getUid()).child("email").setValue(email);
-                            myRef.child("Usuario").child(mAuth.getUid()).child("endereço").setValue(endereco);
-
+                            User u = new User();
+                            u.setNome(ctxtNovoNome.getText().toString());
+                            u.setEmail(ctxtNovoEmail.getText().toString());
+                            u.setContato(novoContato.getText().toString());
+                            u.setCpf(ctxtNovoCPF.getText().toString());
+                            u.setEndereco(ctxtNovoEndereco.getText().toString());
+                            myRef.child("users").child(mAuth.getUid()).setValue(u);
                             FirebaseUser user = mAuth.getCurrentUser();
                             finishRegister(user);
                         } else {
@@ -120,6 +130,10 @@ public class TelaCadastro extends AppCompatActivity {
         }
 
         Toast.makeText(TelaCadastro.this, "Cadastro feito com sucesso!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    public void voltar(View view) {
         finish();
     }
 }

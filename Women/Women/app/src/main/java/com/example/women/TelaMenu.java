@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,18 +42,21 @@ public class TelaMenu extends AppCompatActivity {
                 return false;
 
             case R.id.change_password:
-                Intent MudarSenha = new Intent(TelaMenu.this, MudarSenha.class);
-                startActivity(MudarSenha);
+                /*Intent MudarSenha = new Intent(TelaMenu.this, MudarSenha.class);
+                startActivity(MudarSenha);*/
+                Toast.makeText(TelaMenu.this, "Essa função não estar disponivel nesse momento", Toast.LENGTH_SHORT).show();
                 return false;
 
             case R.id.menu_update:
-                Intent AtualizarConta = new Intent(TelaMenu.this, AtualizarConta.class);
-                startActivity(AtualizarConta);
+                /*Intent AtualizarConta = new Intent(TelaMenu.this, AtualizarConta.class);
+                startActivity(AtualizarConta);*/
+                Toast.makeText(TelaMenu.this, "Essa função não estar disponivel nesse momento", Toast.LENGTH_SHORT).show();
                 return false;
 
             case R.id.menu_delete:
-                Intent DeletarConta = new Intent(TelaMenu.this, DeletarConta.class);
-                startActivity(DeletarConta);
+                /*Intent DeletarConta = new Intent(TelaMenu.this, DeletarConta.class);
+                startActivity(DeletarConta);*/
+                Toast.makeText(TelaMenu.this, "Essa função não estar disponivel nesse momento", Toast.LENGTH_SHORT).show();
                 return false;
 
             default:

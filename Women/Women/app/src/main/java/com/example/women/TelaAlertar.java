@@ -1,5 +1,6 @@
 package com.example.women;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -11,21 +12,36 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.women.models.User;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class TelaAlertar extends AppCompatActivity {
 
+    FirebaseDatabase db;
+    DatabaseReference myRef;
+    FirebaseUser user;
+    private String contato;
+    private User userData;
     private Button btnLigar, btnEnviar;
     private Intent IrLigar, IrMensagem;
 
@@ -34,8 +50,14 @@ public class TelaAlertar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_alertar);
 
+        db = FirebaseDatabase.getInstance();
+        myRef = db.getReference("users");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         btnLigar= (Button) findViewById(R.id.ligar);
         btnEnviar= (Button) findViewById(R.id.enviarMensagem);
+
+        getData();
 
         btnLigar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +119,8 @@ public class TelaAlertar extends AppCompatActivity {
     private void enviarMensagemWhats(LatLng latLng){
 
         String mensagem;
+        String numero = contato;
+
         if(latLng== null){
             mensagem = "estou em perigo nao sei minha localizaçao.";
         }else{
@@ -104,9 +128,10 @@ public class TelaAlertar extends AppCompatActivity {
         }
 
             try {
+                
                 PackageManager packageManager = getPackageManager();
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                String url = "https://api.whatsapp.com/send?phone=" + "+559291939930" + "&text=" + URLEncoder.encode(mensagem, "UTF-8");
+                String url = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + URLEncoder.encode( mensagem, "UTF-8");
                 i.setPackage("com.whatsapp");
                 i.setData(Uri.parse(url));
                 if (i.resolveActivity(packageManager) != null) {
@@ -114,8 +139,27 @@ public class TelaAlertar extends AppCompatActivity {
                 }
 
             } catch (UnsupportedEncodingException e) {
+              //  Log.d("teste", "aqui");
                 e.printStackTrace();
             }
         }
+
+    private void getData() {
+        myRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    userData = snapshot.getValue(User.class);
+
+                    contato = userData.getContato();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }
 

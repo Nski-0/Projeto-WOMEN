@@ -16,4 +16,6 @@
     <string name="enviarMensagem">enviar mensagem</string>
     <string name="Cep">cep</string>
     <string name="Endereço">endereco</string>
+    <string name="Cpf">cpf</string>
+    <string name="Contato">contato</string>
 </resources>
