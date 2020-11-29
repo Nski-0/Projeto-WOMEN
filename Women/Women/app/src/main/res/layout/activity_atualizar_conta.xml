@@ -16,65 +16,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:endIconMode="clear_text"
-            app:startIconContentDescription="@string/content_description_end_icon"
-            app:startIconDrawable="@drawable/name1">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/name1"/>
+
+            <EditText
                 android:id="@+id/novoNome"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Novo nome" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="60dp"
+                android:ems="20"
+                android:inputType="textPersonName"
+                android:hint="Digite um novo nome"
+                android:text="" />
+        </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:startIconContentDescription="@string/Contato"
-            app:startIconDrawable="@drawable/telefone"
-            app:endIconMode="clear_text">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/mudarContato"
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/telefone"/>
+
+            <EditText
+                android:id="@+id/novoContato"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:ems="20"
                 android:inputType="phone"
-                android:hint="Novo contato de emergência" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Digite um novo contato"
+                android:text="" />
+        </LinearLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout4"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:endIconMode="clear_text"
-            app:startIconContentDescription="@string/Cpf"
-            app:startIconDrawable="@drawable/cpf">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/cpf"/>
+
+            <EditText
                 android:id="@+id/novoCpf"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:ems="20"
                 android:inputType="number"
-                android:hint="Novo CPF" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Digite um novo cpf"
+                android:text="" />
+        </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:endIconMode="clear_text"
-            app:startIconContentDescription="@string/Endereço"
-            app:startIconDrawable="@drawable/endereco">
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/endereco"/>
+
+            <EditText
                 android:id="@+id/novoEndereco"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Novo endereço" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="60dp"
+                android:ems="20"
+                android:inputType="text"
+                android:hint="Digite um novo endereço"
+                android:text="" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,13 +142,6 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/test"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:textSize="20sp"
-            android:text="" />
 
     </LinearLayout>
 
