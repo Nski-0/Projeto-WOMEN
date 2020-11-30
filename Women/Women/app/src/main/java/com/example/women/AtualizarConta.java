@@ -122,7 +122,7 @@ public class AtualizarConta extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if(!novoCpf.getText().toString().equals(userData.getContato())){
-                    userData.setContato(novoCpf.getText().toString());
+                    userData.setCpf(novoCpf.getText().toString());
                     btnAtualizar.setEnabled(true);
                 }
             }
@@ -142,7 +142,7 @@ public class AtualizarConta extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if(!novoEndereco.getText().toString().equals(userData.getContato())){
-                    userData.setContato(novoEndereco.getText().toString());
+                    userData.setEndereco(novoEndereco.getText().toString());
                     btnAtualizar.setEnabled(true);
                 }
             }

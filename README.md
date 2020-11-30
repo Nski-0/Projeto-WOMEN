@@ -5,7 +5,7 @@ Repositório voltado ao desenvolvimento do projeto Mobile de uma equipe do 3º a
   O projeto Woman vem com a proposta de ajudar as mulheres que sofrem de violencia domestica, oferecendo outros serviços de denuncias
 
 ## Como baixar ?
-Para fazer o download do aplicativo, basta acessar esse link: [download-app](https://drive.google.com/file/d/1tfK41PTIZqJkEqpQALSy1Zu6Kv3Tn5bx/view?usp=drivesdk), selecionar o arquivo Women.apk e baixa-lo. 
+Para fazer o download do aplicativo, basta acessar esse link: [download-app](https://drive.google.com/file/d/1uSv4lEuEJTDlQAGQ15Wqsfn8eoLOeHTU/view?usp=sharing), selecionar o arquivo Women.apk e baixa-lo. 
 ## Qual o público alvo ?
 Mulheres que sofrem de violencia domestica
 
